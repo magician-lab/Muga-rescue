@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><title>Pending Projects</title></head>
+<body style="font-family:Arial; padding:40px;">
+
+<h2>Pending Projects</h2>
+
+<table border="1" cellpadding="10" cellspacing="0" style="width:100%; background:white;">
+<tr style="background:#1f4f99; color:white;">
+<th>Name</th><th>Description</th><th>Location</th>
+</tr>
+
+{% for project in projects %}
+<tr>
+<td>{{ project.title }}</td>
+<td>{{ project.description }}</td>
+<td>{{ project.location }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<button onclick="window.location.href='/'"
+style="padding:10px 20px; background:#1f4f99; color:white; border:none;">
+Back to Dashboard
+</button>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Project</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f2f5fa; }
+        .container {
+            width: 450px; margin: 60px auto; background: white;
+            padding: 25px; border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+        h2 { text-align: center; color: #0b5ed7; }
+        input, textarea { width: 100%; padding: 8px; margin-top: 8px; }
+        button {
+            width: 100%; padding: 10px; margin-top: 15px;
+            background: #0b5ed7; color: white; border: none; border-radius: 4px;
+        }
+        .msg { text-align: center; margin-top: 10px; font-weight: bold; }
+        .success { color: green; }
+        .error { color: red; }
+        .back { display: block; text-align: center; margin-top: 12px; color: #0b5ed7; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Project Submission</h2>
+
+    <form method="POST" action="/submit_project">
+        <input type="text" name="id_number" placeholder="Your ID Number" required>
+        <input type="text" name="project_name" placeholder="Project Name" required>
+        <textarea name="description" placeholder="Project Description" required></textarea>
+        <input type="text" name="location" placeholder="Project Location" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if message %}
+        <div class="msg {% if 'successfully' in message %}success{% else %}error{% endif %}">
+            {{ message }}
+        </div>
+    {% endif %}
+
+    <button onclick="window.location.href='/'"
+style="padding:10px 20px; background:#1f4f99; color:white; border:none;">
+Back to Dashboard
+</button>
+</div>
+ 
+</body>
+</html>
